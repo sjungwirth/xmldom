@@ -241,7 +241,7 @@ function parseElementStartPart(source,start,el,currentNSMap,entityReplacer,error
 				p = source.indexOf(c,start)
 				if(p>0){
 					value = source.slice(start,p).replace(/&#?\w+;/g,entityReplacer);
-					el.add(attrName,value,start-1);
+					try { el.add(attrName,value,start-1); } catch(err) {}
 					s = S_ATTR_END;
 				}else{
 					//fatalError: no end quot match
